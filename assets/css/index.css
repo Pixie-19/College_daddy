@@ -232,6 +232,10 @@ body::before {
     overflow: hidden;
     transform-style: preserve-3d;
     z-index: 1;
+
+    transition: all 0.3s ease;
+    background-color: #000000;
+    border-radius: 10px;
 }
 
 .feature-card::before {
