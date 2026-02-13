@@ -202,6 +202,8 @@ function initializeCompanyData() {
 function calculate() {
     // Reset display
     hideAllSections();
+    updatePlacementBadge(targetCGPA);
+
     
     // Get input values
     const currentCGPA = parseFloat(document.getElementById('currentCGPA').value);
@@ -441,5 +443,23 @@ function updateSemesterChart(completedSem, remainingSem, requiredCGPA, chartOpti
         });
     }
 }
+
+function updatePlacementBadge(cgpa) {
+    const badge = document.getElementById("placementStatusBadge");
+
+    if (cgpa >= 9) {
+        badge.textContent = "🟢 Strong Placement Position";
+        badge.className = "placement-badge strong";
+    } else if (cgpa >= 8) {
+        badge.textContent = "🟡 Moderate Placement Position";
+        badge.className = "placement-badge moderate";
+    } else {
+        badge.textContent = "🔴 Needs Improvement for Top Companies";
+        badge.className = "placement-badge weak";
+    }
+}
+let percent = (eligible / 114) * 100;
+document.getElementById("eligibilityBar").style.width = percent + "%";
+
 
 
