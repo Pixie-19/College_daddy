@@ -20,42 +20,52 @@ document.addEventListener("DOMContentLoaded", () => {
     style.textContent = `
       .back-to-top-btn {
         position: fixed;
-        right: 1rem;
-        bottom: 1rem;
-        width: 2.75rem;
-        height: 2.75rem;
-        border: 2px solid var(--primary-color, #009dff);
+        pointer-events: none;
+        right: 1.25rem;
+        bottom: 1.25rem;
+        width: 3rem;
+        height: 3rem;
+        border: none;
         border-radius: 999px;
-        background: var(--bg-darker, #0a0a0a);
+        background: var(--primary-color, #009dff);
         color: var(--text-light, #ffffff);
-        font-size: 1.1rem;
+        font-size: 1.25rem;
         cursor: pointer;
         opacity: 0;
         visibility: hidden;
-        transform: translateY(8px);
-        transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
-        z-index: 1000;
+        transform: translateY(12px) scale(0.9);
+        transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease, background 0.2s ease;
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 16px rgba(0, 157, 255, 0.4);
       }
 
       .back-to-top-btn.visible {
         opacity: 1;
         visibility: visible;
-        transform: translateY(0);
+        transform: translateY(0) scale(1);
+        pointer-events: auto;
       }
 
       .back-to-top-btn:hover {
-        background: var(--card-bg, #181818);
+        background: var(--primary-hover, #00c8ff);
+        box-shadow: 0 6px 20px rgba(0, 157, 255, 0.5);
       }
 
       .back-to-top-btn:focus-visible {
-        outline: 2px solid var(--primary-color, #009dff);
+        outline: 2px solid var(--text-light, #ffffff);
         outline-offset: 3px;
       }
 
       @media (max-width: 768px) {
         .back-to-top-btn {
-          right: 0.85rem;
-          bottom: 0.85rem;
+          right: 1rem;
+          bottom: 1rem;
+          width: 2.75rem;
+          height: 2.75rem;
+          font-size: 1.1rem;
         }
       }
     `;
